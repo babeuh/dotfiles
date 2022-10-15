@@ -10,6 +10,6 @@ in
       ublock-origin
     ];
     # TODO: Make this better
-    profiles.secure.extraConfig = builtins.readFile ./arkenfox/user.js;
+    profiles.secure.extraConfig = pkgs.arkenfox-userjs + "/user.js";
   };
 }

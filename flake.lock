@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "arkenfox-userjs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665257885,
+        "narHash": "sha256-4PNnCRLomAd5OdN4UEbsVSm8eNuteZHKaUqRVvIBvN8=",
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "rev": "f4187632faef76df4de0cbb0cdc7199f22fadd76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "type": "github"
+      }
+    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -119,6 +135,7 @@
     },
     "root": {
       "inputs": {
+        "arkenfox-userjs": "arkenfox-userjs",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",

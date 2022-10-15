@@ -16,6 +16,11 @@
     # Shameless plug from misterio77: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
+
+    arkenfox-userjs = {
+      url = "github:arkenfox/user.js";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, ...}@inputs:
