@@ -18,11 +18,11 @@ let
   profiles = {
     "Secure" = {
       default = true;
-      homepage = "about:blank":
+      homepage = "about:blank";
       arkenfox = [ arkenfox.main ];
     };
     "Insecure" = {
-      homepage = "about:blank":
+      homepage = "about:blank";
     };
   };
 
@@ -33,6 +33,8 @@ let
       settings = {
         "browser.startup.homepage" = profile.homepage;
         "browser.rememberSignons" = false; # Disable password manager
+        "extensions.pocket.enabled" = false;
+        "ui.systemUsesDarkTheme" = true;
       } // (if profile ? settings then profile.settings else { });
       isDefault = if profile ? default then profile.default else false;
       arkenfox = lib.mkMerge ([
