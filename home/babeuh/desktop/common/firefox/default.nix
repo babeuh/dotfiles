@@ -18,9 +18,12 @@ let
   profiles = {
     "Secure" = {
       default = true;
+      homepage = "about:blank":
       arkenfox = [ arkenfox.main ];
     };
-    "Insecure" = {};
+    "Insecure" = {
+      homepage = "about:blank":
+    };
   };
 
   buildProfile = id: name: profile: {
@@ -28,6 +31,7 @@ let
     value = {
       inherit name id;
       settings = {
+        "browser.startup.homepage" = profile.homepage;
         "browser.rememberSignons" = false; # Disable password manager
       } // (if profile ? settings then profile.settings else { });
       isDefault = if profile ? default then profile.default else false;
