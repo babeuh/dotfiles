@@ -4,8 +4,8 @@ let
   inherit (inputs) self home-manager nixpkgs;
   inherit (self) outputs;
 
-  inherit (builtins) attrValues;
-  inherit (nixpkgs.lib) nixosSystem genAttrs;
+  inherit (builtins) attrValues foldl';
+  inherit (nixpkgs.lib) nixosSystem genAttrs mapAttrsToList nameValuePair;
   inherit (home-manager.lib) homeManagerConfiguration;
 
 in
@@ -50,4 +50,12 @@ rec {
       };
       modules = attrValues (import ../modules/home-manager) ++ [ ../home/${username} ];
     };
+  foldOverAttrs = init: op: attrs:
+    (foldl'
+      (acc: attr: let nattr = op acc.acc attr.name attr.value; in {
+                        acc = nattr.acc;
+                        value = acc.value // { "${attr.name}" = nattr.value; };
+                      })
+      { acc = init; value = { }; }
+      (mapAttrsToList nameValuePair attrs)).value;
 }

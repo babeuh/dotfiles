@@ -1,15 +1,56 @@
 { pkgs, lib, persistence, ... }:
 
 let
+  inherit (builtins) foldl';
+  inherit (lib) mapAttrsToList nameValuePair;
+  foldOverAttrs = init: op: attrs:
+    (foldl'
+      (acc: attr: let nattr = op acc.acc attr.name attr.value; in {
+                        acc = nattr.acc;
+                        value = acc.value // { "${attr.name}" = nattr.value; };
+                      })
+      { acc = init; value = { }; }
+      (mapAttrsToList nameValuePair attrs)).value;
+
   addons = pkgs.nur.repos.rycee.firefox-addons;
+  arkenfox = import ./arkenfox.nix { inherit lib; };
+
+  profiles = {
+    "Secure" = {
+      default = true;
+      arkenfox = [ arkenfox.main ];
+    };
+    "Insecure" = {};
+  };
+
+  buildProfile = id: name: profile: {
+    acc = id + 1;
+    value = {
+      inherit name id;
+      settings = {
+        "browser.rememberSignons" = false; # Disable password manager
+      } // (if profile ? settings then profile.settings else { });
+      isDefault = if profile ? default then profile.default else false;
+      arkenfox = lib.mkMerge ([
+        { enable = true; }
+      ] ++ (if profile ? arkenfox then profile.arkenfox else [ ]));
+    };
+  };
 in
 {
   programs.firefox = {
     enable = true;
+    arkenfox = {
+      enable = true;
+      version = "master";
+    };
+
     extensions = with addons; [
       ublock-origin
+      darkreader
     ];
+
     # TODO: Make this better
-    profiles.secure.extraConfig = pkgs.arkenfox-userjs + "/user.js";
+    profiles = foldOverAttrs 0 buildProfile profiles;
   };
 }

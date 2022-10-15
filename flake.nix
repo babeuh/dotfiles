@@ -16,14 +16,10 @@
     # Shameless plug from misterio77: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
-
-    arkenfox-userjs = {
-      url = "github:arkenfox/user.js";
-      flake = false;
-    };
+    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = { nixpkgs, ...}@inputs:
+  outputs = { nixpkgs, nur, arkenfox, ...}@inputs:
     let
       _lib = import ./lib { inherit inputs; };
       inherit (_lib) mkSystem mkHome forAllSystems;
@@ -32,7 +28,8 @@
       # Your custom packages and modifications
       overlays = {
         default = import ./overlay { inherit inputs; };
-        nur = inputs.nur.overlay;
+        nur = nur.overlay;
+        arkenfox = arkenfox.overlay;
       };
 
       # Reusable nixos modules you might want to export
@@ -41,7 +38,6 @@
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
-
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = forAllSystems (system: {
