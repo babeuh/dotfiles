@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ scrot ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ scrot ]; }

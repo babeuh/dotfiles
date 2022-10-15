@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [ playerctl ];
-  services.playerctld = {
-    enable = true;
-  };
+  services.playerctld = { enable = true; };
 }

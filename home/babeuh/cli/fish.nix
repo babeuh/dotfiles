@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
     shellAbbrs = {
@@ -28,9 +27,7 @@
       # Clear screen and scrollback
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
     };
-    functions = {
-      fish_greeting = "";
-    };
+    functions = { fish_greeting = ""; };
     interactiveShellInit =
       # Open command buffer in vim when alt+e is pressed
       ''

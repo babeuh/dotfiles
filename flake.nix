@@ -19,7 +19,7 @@
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = { nixpkgs, nur, arkenfox, ...}@inputs:
+  outputs = { nixpkgs, nur, arkenfox, ... }@inputs:
     let
       _lib = import ./lib { inherit inputs; };
       inherit (_lib) mkSystem mkHome forAllSystems;
@@ -57,14 +57,14 @@
           # NOTE: Set `nixpkgs.config` here, it won't work elsewhere
 
           # NOTE: Need to allow every unfree package here
-          config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-            "nvidia"
-            "nvidia-x11"
-            "nvidia-settings"
-            "discord"
-          ];
-        }
-      );
+          config.allowUnfreePredicate = pkg:
+            builtins.elem (lib.getName pkg) [
+              "nvidia"
+              "nvidia-x11"
+              "nvidia-settings"
+              "discord"
+            ];
+        });
 
       nixosConfigurations = {
         atlas = mkSystem {
@@ -80,9 +80,9 @@
           username = "babeuh";
           hostname = "atlas";
           persistence = true;
-          
+
           colorscheme = "gruvbox";
+        };
       };
     };
-  }; 
 }

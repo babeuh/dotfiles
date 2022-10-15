@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   imports = [
     ../common
     ./xidlehook.nix
@@ -18,9 +17,9 @@
       config = pkgs.writeText "xmonad.hs" ''
         ${builtins.readFile ./config.hs}
       '';
-        # TODO: fix this
-        #myFocusedBorderColor = "${colorscheme.accent-primary}"
-        #myNormalBorderColor = "${colorscheme.bg-primary-bright}"
+      # TODO: fix this
+      #myFocusedBorderColor = "${colorscheme.accent-primary}"
+      #myNormalBorderColor = "${colorscheme.bg-primary-bright}"
     };
   };
 }

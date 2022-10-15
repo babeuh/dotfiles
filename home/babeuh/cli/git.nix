@@ -6,9 +6,7 @@
     userName = "Babeuh";
     userEmail = "60193302+babeuh@users.noreply.github.com";
 
-    aliases = {
-      graph = "log --decorate --oneline --graph";
-    };
+    aliases = { graph = "log --decorate --oneline --graph"; };
 
     delta = {
       enable = true;

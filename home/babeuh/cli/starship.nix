@@ -1,17 +1,13 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.starship = {
     enable = true;
     settings = {
-      format =
-        let
-          git = "$git_branch$git_commit$git_state$git_status";
-        in
-        ''
-          $username$hostname($shlvl)($cmd_duration) $fill ($nix_shell)$custom
-          $directory(${git}) $fill
-          $jobs$character
-        '';
+      format = let git = "$git_branch$git_commit$git_state$git_status";
+      in ''
+        $username$hostname($shlvl)($cmd_duration) $fill ($nix_shell)$custom
+        $directory(${git}) $fill
+        $jobs$character
+      '';
 
       fill = {
         symbol = " ";
@@ -35,9 +31,7 @@
         repeat = true;
         disabled = false;
       };
-      cmd_duration = {
-        format = "took [$duration]($style) ";
-      };
+      cmd_duration = { format = "took [$duration]($style) "; };
 
       directory = {
         format = "[$path]($style)( [$read_only]($read_only_style)) ";
@@ -59,7 +53,7 @@
       };
 
       time = {
-        format = "\\\[[$time]($style)\\\]";
+        format = "\\[[$time]($style)\\]";
         disabled = false;
       };
 

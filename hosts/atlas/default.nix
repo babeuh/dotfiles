@@ -23,8 +23,9 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-    
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
+
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
@@ -41,17 +42,11 @@
       extraGroups = [ "wheel" "networkmanager" "audio" ];
     };
   };
-  
+
   environment = {
     # FIXME: Probably not the right way to do this
-    systemPackages = with pkgs; [
-      openrgb
-      i2c-tools
-      ddccontrol
-      git
-      nano
-    ];
-    
+    systemPackages = with pkgs; [ openrgb i2c-tools ddccontrol git nano ];
+
     # FIXME: Definitely not the right way to do this
     sessionVariables = rec {
       XDG_CACHE_HOME = "\${HOME}/.cache";
@@ -59,13 +54,12 @@
       XDG_BIN_HOME = "\${HOME}/.local/bin";
       XDG_DATA_HOME = "\${HOME}/.local/share";
       # Steam needs this to find Proton-GE
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+        "\${HOME}/.steam/root/compatibilitytools.d";
       # NOTE: this doesn't replace PATH, it just adds to it
-      PATH = [
-        "\${XDG_BIN_HOME}"
-      ];
+      PATH = [ "\${XDG_BIN_HOME}" ];
     };
-    
+
     # FIXME: i have no idea why this is here or what it does (taken from last config)
     # pathsToLink = [ "/libexec" ];
   };
@@ -74,14 +68,14 @@
 
   nix.settings.auto-optimise-store = true;
   nix.gc = {
-   automatic = true;
-   dates = "weekly";
-   options = "--delete-older-than 30d";
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
-  
+
   # For steam controller etc.
   # hardware.steam-hardware.enable = true;
-  
+
   # Locales and shit
   # TODO: move this to a common file
   i18n.defaultLocale = "en_US.UTF-8";

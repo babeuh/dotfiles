@@ -7,27 +7,25 @@
     };
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
   };
-  
+
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
-    
+
     #  Key autorepeat
     autoRepeatDelay = 200;
     autoRepeatInterval = 20;
 
     screenSection = ''
-    Option        "metamodes" "2560x1440_144 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}
+      Option        "metamodes" "2560x1440_144 +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}
     '';
-    
-    desktopManager.session = [
-      {
-        name = "home-manager";
-        start = ''
-          ${pkgs.runtimeShell} $HOME/.hm-xsession &
-          waitPID=$!
-        '';
-      }
-    ];
+
+    desktopManager.session = [{
+      name = "home-manager";
+      start = ''
+        ${pkgs.runtimeShell} $HOME/.hm-xsession &
+        waitPID=$!
+      '';
+    }];
   };
 }

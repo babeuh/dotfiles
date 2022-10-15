@@ -19,13 +19,16 @@
 
         size = 10;
       };
-      
+
       window = {
-        padding = { x = 5; y = 5; };
+        padding = {
+          x = 5;
+          y = 5;
+        };
         dynamic_padding = false;
         opacity = 1.0;
       };
-      
+
       cursor = {
         style = "Block";
         unfocused_hollow = true;

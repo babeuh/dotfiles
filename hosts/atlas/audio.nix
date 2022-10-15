@@ -9,9 +9,9 @@
       support32Bit = true;
     };
     pulse.enable = true;
-    
-    # TODO: Low latency
- };
 
- hardware.pulseaudio.support32Bit = true;
+    # TODO: Low latency
+  };
+
+  hardware.pulseaudio.support32Bit = true;
 }

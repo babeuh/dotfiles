@@ -8,16 +8,16 @@
       inputs.flake-utils.follows = "flake-utils";
     };
   };
-  outputs = inputs @ { self, nixpkgs, flake-utils, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
     let
-      haskellDeps = ps: with ps; [
-        xmonad
-        xmonad-contrib
-        xmonad-extras
-        haskell-language-server
-      ];
-    in
-    flake-utils.lib.simpleFlake {
+      haskellDeps = ps:
+        with ps; [
+          xmonad
+          xmonad-contrib
+          xmonad-extras
+          haskell-language-server
+        ];
+    in flake-utils.lib.simpleFlake {
       inherit self nixpkgs;
       name = "XMonad Dev environment";
       shell = { pkgs ? import <nixpkgs> }:

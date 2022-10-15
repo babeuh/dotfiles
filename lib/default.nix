@@ -1,4 +1,3 @@
-
 { inputs, ... }:
 let
   inherit (inputs) self home-manager nixpkgs;
@@ -8,8 +7,7 @@ let
   inherit (nixpkgs.lib) nixosSystem genAttrs mapAttrsToList nameValuePair;
   inherit (home-manager.lib) homeManagerConfiguration;
 
-in
-rec {
+in rec {
 
   systems = [
     "aarch64-darwin"
@@ -20,42 +18,34 @@ rec {
   ];
   forAllSystems = genAttrs systems;
 
-  mkSystem =
-    { hostname
-    , pkgs
-    , persistence ? false
-    }:
+  mkSystem = { hostname, pkgs, persistence ? false }:
     nixosSystem {
       inherit pkgs;
-      specialArgs = {
-        inherit inputs outputs hostname persistence;
-      };
-      modules = attrValues (import ../modules/nixos) ++ [ ../hosts/${hostname} ];
+      specialArgs = { inherit inputs outputs hostname persistence; };
+      modules = attrValues (import ../modules/nixos)
+        ++ [ ../hosts/${hostname} ];
     };
 
-  mkHome =
-    { username
-    , hostname ? null
-    , pkgs ? outputs.nixosConfigurations.${hostname}.pkgs
-    , persistence ? false
-    , colorscheme ? null
-    , wallpaper ? null
-    , features ? [ ]
-    }:
+  mkHome = { username, hostname ? null
+    , pkgs ? outputs.nixosConfigurations.${hostname}.pkgs, persistence ? false
+    , colorscheme ? null, wallpaper ? null, features ? [ ] }:
     homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = {
-        inherit inputs outputs hostname username persistence
-          colorscheme wallpaper features;
+        inherit inputs outputs hostname username persistence colorscheme
+          wallpaper features;
       };
-      modules = attrValues (import ../modules/home-manager) ++ [ ../home/${username} ];
+      modules = attrValues (import ../modules/home-manager)
+        ++ [ ../home/${username} ];
     };
   foldOverAttrs = init: op: attrs:
-    (foldl'
-      (acc: attr: let nattr = op acc.acc attr.name attr.value; in {
-                        acc = nattr.acc;
-                        value = acc.value // { "${attr.name}" = nattr.value; };
-                      })
-      { acc = init; value = { }; }
-      (mapAttrsToList nameValuePair attrs)).value;
+    (foldl' (acc: attr:
+      let nattr = op acc.acc attr.name attr.value;
+      in {
+        acc = nattr.acc;
+        value = acc.value // { "${attr.name}" = nattr.value; };
+      }) {
+        acc = init;
+        value = { };
+      } (mapAttrsToList nameValuePair attrs)).value;
 }

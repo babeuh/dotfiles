@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services.xidlehook = {
     enable = true;
     not-when-fullscreen = true;
@@ -8,12 +7,15 @@
     timers = [
       {
         delay = 240;
-        command = "${pkgs.notify-desktop}/bin/notify-desktop --app-name=betterlockscreen --urgency=critical \"Locking screen in 1 min\"";
-        canceller = "${pkgs.notify-desktop}/bin/notify-desktop --app-name=betterlockscreen \"Locking screen cancelled\"";
+        command = ''
+          ${pkgs.notify-desktop}/bin/notify-desktop --app-name=betterlockscreen --urgency=critical "Locking screen in 1 min"'';
+        canceller = ''
+          ${pkgs.notify-desktop}/bin/notify-desktop --app-name=betterlockscreen "Locking screen cancelled"'';
       }
       {
         delay = 60;
-        command = "${pkgs.betterlockscreen}/bin/betterlockscreen --wall blur -l";
+        command =
+          "${pkgs.betterlockscreen}/bin/betterlockscreen --wall blur -l";
       }
     ];
   };
