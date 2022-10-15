@@ -9,7 +9,7 @@
         in
         ''
           $username$hostname($shlvl)($cmd_duration) $fill ($nix_shell)$custom
-          $directory(${git}) $fill $time
+          $directory(${git}) $fill
           $jobs$character
         '';
 
