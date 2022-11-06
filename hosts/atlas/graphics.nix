@@ -13,7 +13,7 @@
     videoDrivers = [ "nvidia" ];
 
     #  Key autorepeat
-    autoRepeatDelay = 200;
+    autoRepeatDelay = 500;
     autoRepeatInterval = 20;
 
     screenSection = ''
