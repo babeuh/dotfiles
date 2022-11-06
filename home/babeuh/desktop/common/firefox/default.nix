@@ -33,7 +33,6 @@ let
       settings = {
         "browser.startup.homepage" = profile.homepage;
         "browser.rememberSignons" = false; # Disable password manager
-        "extensions.pocket.enabled" = false;
         "ui.systemUsesDarkTheme" = true;
       } // (if profile ? settings then profile.settings else { });
       isDefault = if profile ? default then profile.default else false;
@@ -44,11 +43,24 @@ let
 in {
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-esr.override {
+      extraPolicies = {
+        DontCheckDefaultBrowser = true;
+        DisablePocket = true;
+        DisableFirefoxAccounts = true;
+        FirefoxHome = {
+          Pocket = false;
+          Snippets = false;
+        };
+        SearchEngines = {
+          Default = "DuckDuckGo";
+        };
+      };
+    };
     arkenfox = {
       enable = true;
-      version = "master";
+      version = "102.0";
     };
-
     extensions = with addons; [ ublock-origin darkreader ];
 
     # TODO: Make this better
