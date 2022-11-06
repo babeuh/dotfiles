@@ -76,6 +76,8 @@ import XMonad.Util.NamedScratchpad
 main :: IO ()
 main = xmonad myConfig
 
+myFocusedBorderColor = "#fff"
+
 myConfig :: XConfig (MyLayoutModifiers MyTogglableLayouts)
 myConfig =
   docks
@@ -86,9 +88,8 @@ myConfig =
         manageHook = myManageHook,
         layoutHook = myLayoutModifiers myTogglableLayouts,
         handleEventHook = handleEventHook def,
-        -- NOTE: Injected using nix strings.
-        -- Think about parsing colorscheme.nix file in some way
-        --focusedBorderColor = myFocusedBorderColor,
+        -- TODO: theming, inject using nix strings?
+        focusedBorderColor = myFocusedBorderColor,
         --normalBorderColor = myNormalBorderColor,
         borderWidth = 3
       }
