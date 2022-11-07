@@ -12,6 +12,13 @@
       "super + space"                   = "rofi -display-drun \"App\" -show drun -font \"monospace;2\" -matching glob";
       # reload sxhkd
       "super + Escape"                  = "pkill -USR1 -x sxhkd";
+      # media keys
+      "XF86AudioPlay"                   = "playerctl --ignore-player=Firefox play-pause";
+      "XF86AudioNext"                   = "playerctl --ignore-player=Firefox next";
+      "XF86AudioPrev"                   = "playerctl --ignore-player=Firefox prev";
+      "XF86AudioMute"                   = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+      "XF86AudioLowerVolume"            = "playerctl volume 0.10-";
+      "XF86AudioRaiseVolume"            = "playerctl volume 0.10+";
 
       #
       # bspwm hotkeys

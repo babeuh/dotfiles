@@ -13,6 +13,6 @@ in {
     ./alacritty.nix
   ];
 
-  home.packages = with pkgs; [ heroic keepassxc spotify ];
+  home.packages = with pkgs; [ heroic keepassxc spotify playerctl pulseaudio ];
   xdg.mimeApps.enable = true;
 }
