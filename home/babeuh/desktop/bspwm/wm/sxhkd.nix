@@ -9,7 +9,7 @@
       # terminal
       "super + Return"                  = "alacritty";
       # launcher
-      "super + space"                   = "";
+      "super + space"                   = "rofi -display-drun \"App\" -show drun -font \"monospace;2\" -matching glob";
       # reload sxhkd
       "super + Escape"                  = "pkill -USR1 -x sxhkd";
 

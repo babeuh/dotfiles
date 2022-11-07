@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports =
-    [ ../common ./xidlehook.nix ./betterlockscreen.nix ./background.nix ./wm ];
+    [ ../common ./xidlehook.nix ./betterlockscreen.nix ./background.nix ./rofi.nix ./wm ];
 
   home.packages = with pkgs; [ scrot feh ];
 
