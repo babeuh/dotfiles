@@ -13,5 +13,6 @@ in {
     ./alacritty.nix
   ];
 
+  home.packages = with pkgs; [ heroic keepassxc ];
   xdg.mimeApps.enable = true;
 }

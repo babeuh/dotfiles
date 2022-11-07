@@ -63,6 +63,10 @@
               "nvidia-x11"
               "nvidia-settings"
               "discord"
+              "steam"
+              "steam-original"
+              "steam-runtime"
+              "steam-run"
             ];
         });
 
