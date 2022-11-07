@@ -14,6 +14,7 @@
     ./graphics.nix
     ./networking.nix
     ./audio.nix
+    ./syncthing.nix
   ];
 
   nix = {
@@ -50,7 +51,7 @@
 
   environment = {
     # FIXME: Probably not the right way to do this
-    systemPackages = with pkgs; [ openrgb i2c-tools ddccontrol git nano ];
+    systemPackages = with pkgs; [ openrgb i2c-tools ddccontrol git nano home-manager ];
 
     # FIXME: Definitely not the right way to do this
     sessionVariables = rec {
