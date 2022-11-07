@@ -4,7 +4,7 @@
     # inputs.nix-colors.homeManagerModule
     inputs.arkenfox.hmModules.default
     ./cli
-    ./desktop/xmonad
+    ./desktop/bspwm
   ];
 
   # nixpkgs.config.allowUnfree = true;
