@@ -13,6 +13,6 @@ in {
     ./alacritty.nix
   ];
 
-  home.packages = with pkgs; [ heroic keepassxc ];
+  home.packages = with pkgs; [ heroic keepassxc spotify ];
   xdg.mimeApps.enable = true;
 }
