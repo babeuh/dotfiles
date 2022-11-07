@@ -23,20 +23,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 And that's it, really! You're ready to have fun with your configurations using
 the latest and greatest nix3 flake-enabled command UX.
 
-# What next?
-
-## Adding more hosts or users
-
-You can organize them by hostname and username on `nixos` and `home-manager`
-directories, be sure to also add them to `flake.nix`.
-
-You can take a look at (beware, here be reproductible dragons)
-[configuration repo](https://github.com/misterio77/nix-config) for ideas.
-
-NixOS makes it easy to share common configuration between hosts (you might want
-to create a common directory for these), while keeping everything in sync.
-home-manager can help you sync your environment (from editor to WM and
-everything in between) anywhere you use it. Have fun!
+# Maybe TODO
 
 ## User password and secrets
 
@@ -128,9 +115,9 @@ sure to also add them to the listing at `modules/nixos/default.nix` or
 See [the wiki article](https://nixos.wiki/wiki/Module) to learn more about
 them.
 
-## Nix says my repo files don't exist, even though they do!
+# Credits/"Sources"
 
-Nix flakes only see files that git is currently tracked, so just `git add .`
-and you should be good to go. Files on `.gitignore`, of course, are invisible
-to nix - this is to guarantee your build won't depend on anything that is not
-on your repo.
+## Misterio77
+
+[dotfiles](https://github.com/Misterio77/nix-config)
+[nix-start-configs](https://github.com/Misterio77/nix-starter-configs)
