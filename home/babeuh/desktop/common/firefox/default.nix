@@ -52,9 +52,7 @@ in {
           Pocket = false;
           Snippets = false;
         };
-        SearchEngines = {
-          Default = "DuckDuckGo";
-        };
+        SearchEngines = { Default = "DuckDuckGo"; };
       };
     };
     arkenfox = {

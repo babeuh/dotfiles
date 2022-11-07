@@ -1,8 +1,5 @@
 { config, pkgs, ... }: {
-  imports = [
-    ./sxhkd.nix
-    ./bspwm.nix
-  ];
+  imports = [ ./sxhkd.nix ./bspwm.nix ];
 
   xsession = {
     enable = true;
