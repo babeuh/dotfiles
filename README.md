@@ -1,17 +1,14 @@
 # Dotfiles
 
-## The repo
+## Usage
 
-- [Install git](https://nixos.wiki/wiki/git), if you haven't already.
-- Clone the repo.
+- Clone repo with git.
 - Make sure you're running Nix 2.4+, and opt into the experimental `flakes` and `nix-command` features:
 ```bash
 # Should be 2.4+
 nix --version
 export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
-## Usage
-
 - Run `sudo nixos-rebuild switch --flake .#hostname` to apply your system
   configuration.
     - If you're still on a live installation medium, run `nixos-install --flake
@@ -19,9 +16,6 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 - Run `home-manager switch --flake .#username@hostname` to apply your home
   configuration.
   - If you don't have home-manager installed, try `nix shell nixpkgs#home-manager`.
-
-And that's it, really! You're ready to have fun with your configurations using
-the latest and greatest nix3 flake-enabled command UX.
 
 # Maybe TODO
 
