@@ -119,5 +119,5 @@ them.
 
 ## Misterio77
 
-[dotfiles](https://github.com/Misterio77/nix-config)
-[nix-start-configs](https://github.com/Misterio77/nix-starter-configs)
+- [dotfiles](https://github.com/Misterio77/nix-config)
+- [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
