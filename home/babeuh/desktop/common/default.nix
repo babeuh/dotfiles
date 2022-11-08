@@ -11,8 +11,10 @@ in {
     ./playerctl.nix
     ./qt.nix
     ./alacritty.nix
+    ./spotify.nix
+    ./keepassxc.nix
   ];
 
-  home.packages = with pkgs; [ heroic keepassxc spotify playerctl pulseaudio ];
+  home.packages = with pkgs; [ heroic pulseaudio ];
   xdg.mimeApps.enable = true;
 }

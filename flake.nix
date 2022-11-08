@@ -67,8 +67,6 @@
               "steam-original"
               "steam-runtime"
               "steam-run"
-              "spotify"
-              "spotify-unwrapped"
             ];
         });
 
