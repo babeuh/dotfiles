@@ -3,6 +3,7 @@
     enable = true;
     # alwaysResetDesktop maybe false
     monitors = {
+      # 1: Browser; 2: Media; 3: Editors; 4: Communication; 5: Game Launchers; 6: Games;
       DP-0 = [ "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" ];
     };
     rules = {

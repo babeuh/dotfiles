@@ -35,7 +35,6 @@
       };
 
       shell = {
-        # TODO: make this dynamic
         program = "/home/babeuh/.nix-profile/bin/fish";
       };
       # TODO: fix
