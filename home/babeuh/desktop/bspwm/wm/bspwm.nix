@@ -7,8 +7,21 @@
       DP-0 = [ "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" ];
     };
     rules = {
+      # class_name:instance_name:name
       "firefox" = {
         desktop = "I";
+      };
+      "spotify-tui" = {
+        desktop = "II";
+      };
+      "discord" = {
+        desktop = "IV";
+      };
+      "heroic" = {
+        desktop = "V";
+      };
+      "*:FallGuys_client" = {
+        desktop = "VI";
       };
     };
     settings = {
@@ -18,6 +31,6 @@
       borderless_monocle = true;
       gapless_monocle    = true;
     };
-    startupPrograms = [];
+    startupPrograms = [ "alacritty --class spotify-tui -e \"spt\""];
   };
 }
