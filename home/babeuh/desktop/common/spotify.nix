@@ -1,3 +1,9 @@
-{ pkgs, lib, ... }: {
-  home.packages = with pkgs; [ ncspot ];
+{ pkgs, ... }: {
+  programs.ncspot = {
+    enable = true;
+    settings = {
+      shuffle = true;
+      gapless = true;
+    };
+  };
 }
