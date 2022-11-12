@@ -1,7 +1,6 @@
 {
   xsession.windowManager.bspwm = {
     enable = true;
-    # alwaysResetDesktop maybe false
     monitors = {
       # 1: Browser; 2: Media; 3: Editors; 4: Communication; 5: Game Launchers; 6: Games;
       DP-0 = [ "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" ];
@@ -11,7 +10,7 @@
       "firefox" = {
         desktop = "I";
       };
-      "spotify-tui" = {
+      "spotify" = {
         desktop = "II";
       };
       "discord" = {
@@ -20,7 +19,7 @@
       "heroic" = {
         desktop = "V";
       };
-      "*:FallGuys_client" = {
+      "steam_app_0" = {
         desktop = "VI";
       };
     };
@@ -31,6 +30,6 @@
       borderless_monocle = true;
       gapless_monocle    = true;
     };
-    startupPrograms = [ "alacritty --class spotify-tui -e \"spt\""];
+    startupPrograms = [ "alacritty --class spotify -e \"ncspot\""];
   };
 }
