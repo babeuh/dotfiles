@@ -19,6 +19,9 @@
       "heroic" = {
         desktop = "V";
       };
+      "Steam" = {
+        desktop = "V";
+      };
       "steam_app_0" = {
         desktop = "VI";
       };
