@@ -15,6 +15,6 @@ in {
     ./keepassxc.nix
   ];
 
-  home.packages = with pkgs; [ heroic pulseaudio ];
+  home.packages = with pkgs; [ heroic pulseaudio mullvad-vpn ];
   xdg.mimeApps.enable = true;
 }
