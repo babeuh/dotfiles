@@ -19,6 +19,8 @@
       "XF86AudioMute"                   = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
       "XF86AudioLowerVolume"            = "playerctl volume 0.10-";
       "XF86AudioRaiseVolume"            = "playerctl volume 0.10+";
+      # screenshot
+      "super + shift + s"               = "scrot -s ~/Pictures/screenshots/scrot_%Y-%m-%d-%H%M%S.png";
 
       #
       # bspwm hotkeys
