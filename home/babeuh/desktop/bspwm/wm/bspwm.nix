@@ -13,6 +13,9 @@
       "spotify" = {
         desktop = "II";
       };
+      "*:*:GNU Image Manipulation Program" = {
+        desktop = "III";
+      };
       "discord" = {
         desktop = "IV";
       };
