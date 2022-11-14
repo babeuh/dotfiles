@@ -28,6 +28,14 @@
       "steam_app_0" = {
         desktop = "VI";
       };
+      # F1 2015
+      "steam_app_286570" = {
+        desktop = "VI";
+      };
+      # F1 2020
+      "steam_app_1080110" = {
+        desktop = "VI";
+      };
     };
     settings = {
       border_width       = 2;
