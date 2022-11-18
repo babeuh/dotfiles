@@ -15,6 +15,6 @@ in {
     ./keepassxc.nix
   ];
 
-  home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode ];
+  home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode protonup-ng ];
   xdg.mimeApps.enable = true;
 }
