@@ -13,6 +13,7 @@ in {
     ./alacritty.nix
     ./spotify.nix
     ./keepassxc.nix
+    ./dunst.nix
   ];
 
   home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode protonup-ng ];
