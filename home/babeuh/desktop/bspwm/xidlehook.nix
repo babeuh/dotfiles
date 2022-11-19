@@ -8,14 +8,14 @@
       {
         delay = 240;
         command = ''
-          ${pkgs.notify-desktop}/bin/notify-desktop --app-name=betterlockscreen --urgency=critical "Locking screen in 1 min"'';
+          ${pkgs.dunst}/bin/dunstify -a betterlockscreen -u critical "Locking screen in 1 min"'';
         canceller = ''
-          ${pkgs.notify-desktop}/bin/notify-desktop --app-name=betterlockscreen "Locking screen cancelled"'';
+          ${pkgs.dunst}/bin/dunstify -a betterlockscreen -u low "Locking screen cancelled"'';
       }
       {
         delay = 60;
         command =
-          "${pkgs.betterlockscreen}/bin/betterlockscreen --wall blur -l";
+          "${pkgs.betterlockscreen}/bin/betterlockscreen -l & ${pkgs.betterlockscreen}/bin/betterlockscreen -u /home/babeuh/Pictures/backgrounds/ --fx \"\"";
       }
     ];
   };
