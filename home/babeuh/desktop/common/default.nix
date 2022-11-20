@@ -16,6 +16,6 @@ in {
     ./dunst.nix
   ];
 
-  home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode protonup-ng ];
+  home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode protonup-ng gtkcord4 ];
   xdg.mimeApps.enable = true;
 }

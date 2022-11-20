@@ -2,5 +2,5 @@
 # These are similar to nixpkgs packages
 { pkgs }:
 {
-  # example = pkgs.callPackage ./example { };
+  gtkcord4 = pkgs.callPackage ./gtkcord4.nix { };
 }
