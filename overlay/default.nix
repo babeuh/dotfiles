@@ -13,5 +13,17 @@ let
       # ...
       # });
       discord = super.discord.override { withOpenASAR = true; };
+      betterlockscreen = super.betterlockscreen.overrideAttrs (oldAttrs: rec {
+        installPhase = ''
+          runHook preInstall
+
+          mkdir -p $out/bin
+          cp betterlockscreen $out/bin/betterlockscreen
+          wrapProgram "$out/bin/betterlockscreen" \
+            --prefix PATH : "$out/bin:${with super; inputs.nixpkgs.lib.makeBinPath [ feh bc coreutils dbus dunst i3lock-color gawk gnugrep gnused imagemagick procps xorg.xdpyinfo xorg.xrandr xorg.xset ]}"
+
+          runHook postInstall
+        '';
+      });
     };
 in inputs.nixpkgs.lib.composeManyExtensions [ additions modifications ]
