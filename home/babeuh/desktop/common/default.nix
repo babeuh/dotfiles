@@ -14,6 +14,7 @@ in {
     ./spotify.nix
     ./keepassxc.nix
     ./dunst.nix
+    ./helix.nix
   ];
 
   home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode protonup-ng gtkcord4 ];
