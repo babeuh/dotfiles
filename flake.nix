@@ -73,7 +73,7 @@
         "babeuh@atlas" = home-manager.lib.homeManagerConfiguration {
           pkgs = legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = builtins.attrValues homeManagerModules ++ [ ./home/babeuh ];
+          modules = [ ./home/babeuh/atlas.nix ];
         };
       };
     };

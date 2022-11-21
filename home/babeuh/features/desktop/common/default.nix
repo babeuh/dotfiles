@@ -1,6 +1,4 @@
-{ pkgs, hostname, lib, outputs, ... }:
-let systemConfig = outputs.nixosConfigurations.${hostname}.config;
-in {
+{ pkgs, hostname, lib, outputs, ... }: {
   imports = [
     ./discord.nix
     ./dragon.nix
@@ -17,6 +15,6 @@ in {
     ./helix.nix
   ];
 
-  home.packages = with pkgs; [ heroic pulseaudio gimp mullvad-vpn gamemode protonup-ng gtkcord4 ];
+  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn gtkcord4 ];
   xdg.mimeApps.enable = true;
 }

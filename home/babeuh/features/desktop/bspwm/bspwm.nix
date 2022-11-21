@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
@@ -44,6 +44,9 @@
       borderless_monocle = true;
       gapless_monocle    = true;
     };
-    startupPrograms = [ "alacritty --class spotify -e \"ncspot\""];
+    startupPrograms = [
+      "alacritty --class spotify -e \"ncspot\""
+      "feh --bg-fill --no-fehbg ${config.wallpaper}"
+    ];
   };
 }
