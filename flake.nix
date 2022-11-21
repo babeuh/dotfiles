@@ -11,32 +11,25 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
-    # TODO: Add any other flake you might need
 
-    # Shameless plug from misterio77: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = { nixpkgs, nur, arkenfox, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager,  ... }@inputs:
     let
-      _lib = import ./lib { inherit inputs; };
-      inherit (_lib) mkSystem mkHome forAllSystems;
-      lib = nixpkgs.lib;
+      inherit (self) outputs;
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in rec {
       # Your custom packages and modifications
       overlays = {
         default = import ./overlay { inherit inputs; };
-        nur = nur.overlay;
-        arkenfox = arkenfox.overlay;
+        nur = inputs.nur.overlay;
+        arkenfox = inputs.arkenfox.overlay;
       };
 
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
@@ -49,16 +42,13 @@
       # Our configurations will use these instances
       # Your flake will also let you access your package set through nix build, shell, run, etc.
       legacyPackages = forAllSystems (system:
-        import inputs.nixpkgs {
+        import nixpkgs {
           inherit system;
-          # This adds our overlays to pkgs
           overlays = builtins.attrValues overlays;
-
           # NOTE: Set `nixpkgs.config` here, it won't work elsewhere
-
           # NOTE: Need to allow every unfree package here
           config.allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) [
+            builtins.elem (nixpkgs.lib.getName pkg) [
               "nvidia"
               "nvidia-x11"
               "nvidia-settings"
@@ -71,21 +61,19 @@
         });
 
       nixosConfigurations = {
-        atlas = mkSystem {
-          hostname = "atlas";
+        atlas = nixpkgs.lib.nixosSystem {
           pkgs = legacyPackages."x86_64-linux";
-          persistence = true;
+          specialArgs = { inherit inputs outputs; };
+          modules = builtins.attrValues nixosModules ++ [ ./hosts/atlas ];
         };
       };
 
       homeConfigurations = {
         # Desktop
-        "babeuh@atlas" = mkHome {
-          username = "babeuh";
-          hostname = "atlas";
-          persistence = true;
-
-          colorscheme = "gruvbox";
+        "babeuh@atlas" = home-manager.lib.homeManagerConfiguration {
+          pkgs = legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = builtins.attrValues homeManagerModules ++ [ ./home/babeuh ];
         };
       };
     };
