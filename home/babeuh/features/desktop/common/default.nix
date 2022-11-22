@@ -15,6 +15,6 @@
     ./helix.nix
   ];
 
-  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn gtkcord4 ];
+  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn ];
   xdg.mimeApps.enable = true;
 }
