@@ -41,6 +41,7 @@ let
     };
   };
 in {
+  home.file.".mozilla/firefox/Secure/chrome/userChrome.css".text = "#nav-bar, #TabsToolbar { font-size: 16px !important }";
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-esr.override {
@@ -53,6 +54,12 @@ in {
           Snippets = false;
         };
         SearchEngines = { Default = "DuckDuckGo"; };
+        Preferences = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = {
+            Value = true;
+            Status = "locked";
+          };
+        };
       };
     };
     arkenfox = {
