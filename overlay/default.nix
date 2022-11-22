@@ -25,5 +25,17 @@ let
           runHook postInstall
         '';
       });
+      cozette = super.cozette.overrideAttrs (oldAttrs: rec {
+        version = "1.18.1";
+        name = "Cozette-${version}";
+        url = "https://github.com/slavfox/Cozette/releases/download/v.${version}/CozetteFonts.zip";
+        postFetch = ''
+          mkdir -p $out/share/fonts
+          unzip -j $downloadedFile \*.ttf -d $out/share/fonts/truetype
+          unzip -j $downloadedFile \*.otf -d $out/share/fonts/opentype
+          unzip -j $downloadedFile \*.bdf -d $out/share/fonts/misc
+          unzip -j $downloadedFile \*.otb -d $out/share/fonts/misc
+       '';
+      });
     };
 in inputs.nixpkgs.lib.composeManyExtensions [ additions modifications ]

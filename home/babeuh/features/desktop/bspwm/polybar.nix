@@ -1,16 +1,21 @@
+{ config, ... }: 
+let
+  inherit (config.colorscheme) colors;
+in
 {
   services.polybar = {
     enable = true;
     script = "polybar top &";
     settings = {
       "colors" = {
-        background     = "#282A2E";
-        background-alt = "#373B41";
-        foreground     = "#C5C8C6";
-        primary        = "#F0C674";
-        secondary      = "#8ABEB7";
-        alert          = "#A54242";
-        disabled       = "#707880";
+        background     = "#${colors.base00}";
+        background-alt = "#${colors.base01}";
+        foreground     = "#${colors.base05}";
+        foreground-alt = "#${colors.base05}";
+        primary        = "#${colors.base0A}";
+        secondary      = "#${colors.base0B}";
+        alert          = "#${colors.base08}";
+        disabled       = "#${colors.base03}";
       };
       "bar/top" = {
         width = "100%";
@@ -30,8 +35,8 @@
         };
         module-margin = 1;
         separator = "|";
-        separator-foreground = "\${colors.disabled}";
-        font = [ "monospace;2" ];
+        separator-foreground = "\${colors.background-alt}";
+        font = [ "CozetteVector:size=14" ];
         modules = {
           left = "xworkspaces xwindow";
           right = "filesystem pulseaudio xkeyboard memory cpu eth date";
@@ -71,7 +76,7 @@
         interval = 25;
         mount = [ "/" ];
         label = {
-          mounted = "%{F#F0C674}%mountpoint%%{F-} %percentage_used%%";
+          mounted = "%{F#${colors.base0A}}%mountpoint%%{F-} %percentage_used%%";
           unmounted = "%mountpoint% ?%";
           unmounted-foreground = "\${colors.disabled}";
         };
@@ -113,12 +118,12 @@
           connected = "<label-connected>";
           disconnected = "<label-disconnected>";
         };
-        label-disconnected = "%{F#F0C675}%ifname%%{F#707880} disconnected";
+        label-disconnected = "%{F#${colors.base0A}}%ifname%%{F#707880} disconnected";
       };
       "module/eth" = {
         "inherit" = "network-base";
         interface.type = "wired";
-        label.connected = "%{F#F0C675}%ifname%%{F-} %local_ip%";
+        label.connected = "%{F${colors.base0A}}%ifname%%{F-} %local_ip%";
       };
       "module/date" = {
         type = "internal/date";
