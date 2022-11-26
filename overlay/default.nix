@@ -20,7 +20,7 @@ let
           mkdir -p $out/bin
           cp betterlockscreen $out/bin/betterlockscreen
           wrapProgram "$out/bin/betterlockscreen" \
-            --prefix PATH : "$out/bin:${with super; inputs.nixpkgs.lib.makeBinPath [ feh bc coreutils dbus dunst i3lock-color gawk gnugrep gnused imagemagick procps xorg.xdpyinfo xorg.xrandr xorg.xset ]}"
+            --prefix PATH : "$out/bin:${with super; inputs.nixpkgs.lib.makeBinPath [ feh bc coreutils dbus dunst i3lock-color gawk gnugrep gnused imagemagick procps xorg.xdpyinfo xorg.xrandr xorg.xset xorg.xrdb ]}"
 
           runHook postInstall
         '';
