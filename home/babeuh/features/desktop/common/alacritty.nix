@@ -17,7 +17,7 @@ in
         bold_italic.family = config.fontProfiles.monospace.family;
         bold_italic.style = "Bold Italic";
 
-        size = 13;
+        size = 15;
       };
 
       window = {

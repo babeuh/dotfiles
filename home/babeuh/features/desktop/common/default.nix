@@ -3,7 +3,6 @@
     ./discord.nix
     ./dragon.nix
     ./firefox
-    ./font.nix
     ./gtk.nix
     ./pavucontrol.nix
     ./playerctl.nix
