@@ -5,5 +5,5 @@
     ./features/desktop/bspwm
   ];
   colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
-  wallpaper = ./backgrounds/vettel-2022-Suzuka-Q-background.jpg;
+  wallpaper = ./backgrounds/vettel-years.jpg;
 }

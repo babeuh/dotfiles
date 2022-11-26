@@ -10,7 +10,7 @@ in
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   colorscheme = lib.mkDefault colorSchemes.gruvbox-dark-hard;
-  wallpaper = ../backgrounds/vettel-2022-Suzuka-Q-background.jpg;
+  wallpaper = lib.mkDefault ../backgrounds/vettel-years.jpg;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
