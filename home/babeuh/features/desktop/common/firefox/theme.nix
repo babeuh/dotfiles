@@ -88,6 +88,9 @@ let
         --card-outline-color: var(--t-muted) !important;
 
         --dialog-warning-text-color: var(--t-warning) !important;
+
+        /* About Blank */
+        background-color: var(--t-bg);
       }
       * { font-size: 15px !important; }
     }
