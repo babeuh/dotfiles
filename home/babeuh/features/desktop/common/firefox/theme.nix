@@ -89,6 +89,13 @@ let
 
         --dialog-warning-text-color: var(--t-warning) !important;
 
+        /* Light Mode fix */
+        --in-content-accent-color: var(--t-accent) !important;
+        --in-content-accent-color-active: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
+        --in-content-link-color: var(--t-accent) !important;
+        --in-content-link-color-active: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
+        --in-content-link-color-hover: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
+
         /* About Blank */
         background-color: var(--t-bg);
       }
