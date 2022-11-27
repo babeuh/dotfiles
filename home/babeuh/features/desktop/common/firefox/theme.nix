@@ -51,6 +51,7 @@ let
         --t-fg:      #${colors.base05} !important;
         --t-muted:   #${colors.base04} !important;
         --t-accent:  #${colors.base0A} !important;
+        --t-daccent: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
         --t-danger:  #${colors.base08} !important;
         --t-warning: #${colors.base0E} !important;
         --t-error:   #${colors.base0F} !important;
@@ -76,7 +77,7 @@ let
 
         --in-content-primary-button-text-color: var(--t-bg) !important;
         --in-content-primary-button-background: var(--t-accent) !important;
-        --in-content-primary-button-background-hover: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
+        --in-content-primary-button-background-hover: var(--t-daccent) !important;
         --in-content-primary-button-background-active: var(--t-darken) !important;
 
         --in-content-danger-button-background: var(--t-danger) !important;
@@ -91,10 +92,10 @@ let
 
         /* Light Mode fix */
         --in-content-accent-color: var(--t-accent) !important;
-        --in-content-accent-color-active: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
+        --in-content-accent-color-active: var(--t-daccent) !important;
         --in-content-link-color: var(--t-accent) !important;
-        --in-content-link-color-active: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
-        --in-content-link-color-hover: color-mix(in srgb, var(--t-accent) 41%, transparent) !important;
+        --in-content-link-color-active: var(--t-daccent) !important;
+        --in-content-link-color-hover: var(--t-daccent) !important;
 
         /* About Blank */
         background-color: var(--t-bg);
