@@ -1,4 +1,7 @@
-{ config, ... }: {
+{ config, ... }: 
+let
+  inherit (config.colorscheme) colors;
+in {
   xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
@@ -38,11 +41,13 @@
       };
     };
     settings = {
-      border_width       = 2;
-      window_gap         = 12;
-      split_ratio        = 0.52;
-      borderless_monocle = true;
-      gapless_monocle    = true;
+      border_width         = 2;
+      normal_border_color  = "#${colors.base03}";
+      focused_border_color = "#${colors.base05}";
+      window_gap           = 12;
+      split_ratio          = 0.52;
+      borderless_monocle   = true;
+      gapless_monocle      = true;
     };
     startupPrograms = [
       "alacritty --class spotify -e \"ncspot\""
