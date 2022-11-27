@@ -1,4 +1,4 @@
-{ pkgs, lib, persistence, ... }:
+args@{ pkgs, lib, config, ... }:
 
 let
   inherit (builtins) foldl';
@@ -14,16 +14,34 @@ let
         value = { };
       } (mapAttrsToList nameValuePair attrs)).value;
 
+  blackMagic = func: attrs:
+    (foldl' (acc: orig:
+      let result = func acc.acc orig.name orig.value;
+      in {
+        acc = result.acc;
+        value = acc.value // result.value;
+      }) {
+        acc = 0;
+        value = { };
+      } (mapAttrsToList nameValuePair attrs)).value;
+
   addons = pkgs.nur.repos.rycee.firefox-addons;
   arkenfox = import ./arkenfox.nix { inherit lib; };
+  themer = import ./theme.nix { inherit pkgs config; };
 
   profiles = {
     "Secure" = {
       default = true;
       homepage = "about:blank";
       arkenfox = [ arkenfox.main ];
+      theme = true;
     };
     "Insecure" = { homepage = "about:blank"; };
+  };
+
+  buildTheme = id: name: profile: {
+    acc = id + 1;
+    value = {} // (if profile ? theme then import ./theme.nix ( args // { profile = name; } ) else {});
   };
 
   buildProfile = id: name: profile: {
@@ -41,7 +59,6 @@ let
     };
   };
 in {
-  home.file.".mozilla/firefox/Secure/chrome/userChrome.css".text = "#nav-bar, #TabsToolbar { font-size: 16px !important }";
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-esr.override {
@@ -62,13 +79,13 @@ in {
         };
       };
     };
-    arkenfox = {
-      enable = true;
-      version = "102.0";
-    };
+
+    arkenfox.version = "102.0";
     extensions = with addons; [ ublock-origin darkreader ];
 
     # TODO: Make this better
     profiles = foldOverAttrs 0 buildProfile profiles;
   };
+  # Theming black magic
+  home.file = blackMagic buildTheme profiles;
 }
