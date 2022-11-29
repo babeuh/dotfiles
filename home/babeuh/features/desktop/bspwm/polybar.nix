@@ -127,7 +127,7 @@ in
       };
       "module/date" = {
         type = "internal/date";
-        interval = 1;
+        interval = 0.1;
         date = "%H:%M";
         date-alt = "%Y-%m-%d %H:%M:%S";
         label = "%date%";
