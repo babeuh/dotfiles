@@ -50,6 +50,9 @@ a {
     display: inline-block;
     padding: 2px 0px;
 }
+a:hover {
+    color: var(--fg);
+}
 
 a::before {
     content: "> ";
