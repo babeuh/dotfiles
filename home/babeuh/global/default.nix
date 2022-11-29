@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, config, outputs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 let
   inherit (inputs.nix-colors) colorSchemes;
 in
@@ -29,6 +29,11 @@ in
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
+
+  nixpkgs.overlays = lib.mkDefault [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+  ];
 
   home = {
     username = lib.mkDefault "babeuh";

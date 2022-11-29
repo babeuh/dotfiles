@@ -1,6 +1,4 @@
-# This file defines two overlays and composes them
-{ inputs, ... }:
-let
+{ inputs, ... }: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = self: _super: import ../pkgs { pkgs = self; };
 
@@ -38,4 +36,4 @@ let
        '';
       });
     };
-in inputs.nixpkgs.lib.composeManyExtensions [ additions modifications ]
+}
