@@ -27,21 +27,24 @@ let
 
   addons = pkgs.nur.repos.rycee.firefox-addons;
   arkenfox = import ./arkenfox.nix { inherit lib; };
-  themer = import ./theme.nix { inherit pkgs config; };
 
   profiles = {
     "Secure" = {
       default = true;
-      homepage = "about:blank";
+      startpage = true;
       arkenfox = [ arkenfox.main ];
       theme = true;
     };
-    "Insecure" = { homepage = "about:blank"; };
+    "Insecure" = { };
   };
 
   buildTheme = id: name: profile: {
     acc = id + 1;
     value = {} // (if profile ? theme then import ./theme.nix ( args // { profile = name; } ) else {});
+  };
+  buildStartpage = id: name: profile: {
+    acc = id + 1;
+    value = {} // (if profile ? startpage then import ./startpage ( args // { profile = name; } ) else {});
   };
 
   buildProfile = id: name: profile: {
@@ -49,7 +52,7 @@ let
     value = {
       inherit name id;
       settings = {
-        "browser.startup.homepage" = profile.homepage;
+        "browser.startup.homepage" = if profile ? startpage then "${config.home.homeDirectory}/.mozilla/firefox/Secure/chrome/startpage/index.html" else if profile ? homepage then profile.homepage else "about:blank";
         "browser.rememberSignons" = false; # Disable password manager
         "ui.systemUsesDarkTheme" = true;
       } // (if profile ? settings then profile.settings else { });
@@ -86,6 +89,6 @@ in {
     # TODO: Make this better
     profiles = foldOverAttrs 0 buildProfile profiles;
   };
-  # Theming black magic
-  home.file = blackMagic buildTheme profiles;
+  # Magic
+  home.file = blackMagic buildTheme profiles // blackMagic buildStartpage profiles;
 }
