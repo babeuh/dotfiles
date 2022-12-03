@@ -35,7 +35,7 @@ in
       };
 
       shell = {
-        program = "/home/babeuh/.nix-profile/bin/fish";
+        program = "${config.home.homeDirectory}/.nix-profile/bin/fish";
       };
       colors = {
         primary = {
