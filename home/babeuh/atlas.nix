@@ -1,6 +1,7 @@
 { inputs, outputs, lib, pkgs, ... }: {
   imports = [ 
     ./global
+    ./features/distrobox
     ./features/games
     ./features/desktop/bspwm
   ];
