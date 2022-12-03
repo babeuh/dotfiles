@@ -19,5 +19,6 @@
     "discord"
     "steam"
     "steam-original"
+    "spotify"
   ];
 }
