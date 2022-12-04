@@ -28,12 +28,21 @@ function weather(town) {
     setTimeout(()=>{weather(loc)}, 1200000)
 }
 
-function randChoice( arr ) {
+function randChoice(arr) {
     return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function submitForm() {
+    searchQ = gebi("search-q");
+    window.open(`https://duckduckgo.com/?q=${searchQ.value}`, "_blank")
+    searchQ.value="";
 }
 
 function main() {
     time();
     date();
     weather(loc);
+    window.onfocus = () => {
+        window.setTimeout(() => gebi("search-q").focus(), 0);
+    }
 }
