@@ -34,8 +34,12 @@ function randChoice(arr) {
 
 function submitForm() {
     searchQ = gebi("search-q");
+    if (searchQ.value.startsWith("https://") || searchQ.value.startsWith("http://")) {
+	window.open(searchQ.value, "_blank")
+	return
+    }
     window.open(`https://duckduckgo.com/?q=${searchQ.value}`, "_blank")
-    searchQ.value="";
+    searchQ.value=""
 }
 
 function main() {
