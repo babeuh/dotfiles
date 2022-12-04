@@ -24,7 +24,7 @@ body {
 input {
     background-color: var(--bg);
     border: none;
-    font-size: 50px;
+    font-size: 30px;
     color: var(--fg);
     border-bottom: 3px solid var(--fg);
     display: block;
