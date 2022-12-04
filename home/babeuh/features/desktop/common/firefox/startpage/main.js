@@ -36,9 +36,9 @@ function submitForm() {
     searchQ = gebi("search-q");
     if (searchQ.value.startsWith("https://") || searchQ.value.startsWith("http://")) {
 	window.open(searchQ.value, "_blank")
-	return
+    } else {
+        window.open(`https://duckduckgo.com/?q=${searchQ.value}`, "_blank")
     }
-    window.open(`https://duckduckgo.com/?q=${searchQ.value}`, "_blank")
     searchQ.value=""
 }
 
