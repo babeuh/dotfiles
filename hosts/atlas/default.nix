@@ -57,13 +57,13 @@
   users.users = {
     babeuh = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "audio" ];
+      extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ];
     };
   };
 
   environment = {
     # FIXME: Probably not the right way to do this
-    systemPackages = with pkgs; [ openrgb i2c-tools ddccontrol git nano home-manager ];
+    systemPackages = with pkgs; [ openrgb i2c-tools ddccontrol git nano home-manager virt-manager ];
 
     # FIXME: Definitely not the right way to do this
     sessionVariables = rec {
@@ -110,9 +110,8 @@
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish ];
 
-  # virtualisation.libvirtd.enable = true;
   virtualisation = {
-    #libvirtd.enable = true;
+    libvirtd.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
