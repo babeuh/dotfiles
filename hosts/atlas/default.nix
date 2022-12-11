@@ -93,6 +93,9 @@
   # For steam controller etc.
   # hardware.steam-hardware.enable = true;
 
+  # Enable trash
+  services.gvfs.enable = true;
+
   # Locales and shit
   # TODO: move this to a common file
   i18n.defaultLocale = "en_US.UTF-8";

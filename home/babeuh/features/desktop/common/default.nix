@@ -12,6 +12,7 @@
     ./keepassxc.nix
     ./dunst.nix
     ./helix.nix
+    ./logseq.nix
   ];
 
   home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn ];
