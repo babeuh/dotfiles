@@ -5,7 +5,7 @@ in {
   xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
-      # 1: Browser; 2: Media; 3: Editors; 4: Communication; 5: Game Launchers; 6: Games;
+      # 1: Browser; 2: Media; 3: Media Editors; 4: Text; 8: Communication; 9: Game Launchers; 10: Games;
       DP-0 = [ "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" ];
     };
     rules = {
@@ -19,25 +19,28 @@ in {
       "*:*:GNU Image Manipulation Program" = {
         desktop = "III";
       };
-      "discord" = {
+      "Logseq" = {
         desktop = "IV";
       };
+      "discord" = {
+        desktop = "VIII";
+      };
       "heroic" = {
-        desktop = "V";
+        desktop = "IX";
       };
       "Steam" = {
-        desktop = "V";
+        desktop = "IX";
       };
       "steam_app_0" = {
-        desktop = "VI";
+        desktop = "X";
       };
       # F1 2015
       "steam_app_286570" = {
-        desktop = "VI";
+        desktop = "X";
       };
       # F1 2020
       "steam_app_1080110" = {
-        desktop = "VI";
+        desktop = "X";
       };
     };
     settings = {
