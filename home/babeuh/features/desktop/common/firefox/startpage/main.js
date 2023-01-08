@@ -1,5 +1,4 @@
 const locale = { hc: "h24" };
-const loc = "***REMOVED***";
 
 function gebi(id) {
     return document.getElementById(id);
@@ -17,6 +16,13 @@ function date() {
     let now = new Date();
     gebi("date").innerHTML = now.toLocaleDateString(locale, options);
     setTimeout(date, 1000);
+}
+
+function startWeather(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const location = (await (await fetch(`***REMOVED***`)).text()).split("<city>")[1].split("</city>")[0];
+    weather(location)
 }
 
 function weather(town) {
@@ -45,7 +51,7 @@ function submitForm() {
 function main() {
     time();
     date();
-    weather(loc);
+    navigator.geolocation.getCurrentPosition(startWeather);
     window.onfocus = () => {
         window.setTimeout(() => gebi("search-q").focus(), 0);
     }
