@@ -18,11 +18,12 @@ function date() {
     setTimeout(date, 1000);
 }
 
-function startWeather(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const location = (await (await fetch(`***REMOVED***`)).text()).split("<city>")[1].split("</city>")[0];
-    weather(location)
+async function startWeather(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const req = await fetch(`http://nominatim.openstreetmap.org/reverse?format=xml&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`)
+    const loc = ((await req.text()).split("<city>")[1].split("</city>")[0]);
+    weather(loc);
 }
 
 function weather(town) {
