@@ -15,6 +15,6 @@
     ./logseq.nix
   ];
 
-  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn ];
+  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn yubioath-flutter ];
   xdg.mimeApps.enable = true;
 }

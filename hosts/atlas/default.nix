@@ -95,6 +95,8 @@
 
   # Enable trash
   services.gvfs.enable = true;
+  # Enable pcscd
+  services.pcscd.enable = true;
 
   # Locales and shit
   # TODO: move this to a common file
