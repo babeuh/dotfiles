@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
@@ -24,6 +24,12 @@
       feature.manyFiles = true;
       init.defaultBranch = "main";
       url."https://github.com/".insteadOf = "git://github.com/";
+      # Signing
+      commit.gpgsign = true;
+      tag.gpgsign = true;
+      push.gpgsign = "if-asked";
+      gpg.format = "ssh";
+      user.signingkey = "${config.home.homeDirectory}/.ssh/id_ed25519_sk.pub";
     };
     lfs = { enable = true; };
     ignores = [ ".direnv" "result" ];
