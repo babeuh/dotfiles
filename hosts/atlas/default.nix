@@ -61,6 +61,11 @@
     };
   };
 
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
+
   environment = {
     # FIXME: Probably not the right way to do this
     systemPackages = with pkgs; [ openrgb i2c-tools ddccontrol git nano home-manager virt-manager ];

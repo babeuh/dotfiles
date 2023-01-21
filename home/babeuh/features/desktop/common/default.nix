@@ -15,6 +15,6 @@
     ./logseq.nix
   ];
 
-  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn yubioath-flutter ];
+  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn yubioath-flutter yubikey-touch-detector ];
   xdg.mimeApps.enable = true;
 }

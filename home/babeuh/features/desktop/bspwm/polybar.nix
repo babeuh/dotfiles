@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ pkgs, config, ... }: 
 let
   inherit (config.colorscheme) colors;
 in
@@ -39,7 +39,7 @@ in
         font = [ "CozetteVector:size=15" ];
         modules = {
           left = "xworkspaces xwindow";
-          right = "filesystem pulseaudio xkeyboard memory cpu eth date";
+          right = "yubikey filesystem pulseaudio xkeyboard memory cpu eth date";
         };
         cursor = {
           click = "pointer";
@@ -132,6 +132,15 @@ in
         date-alt = "%Y-%m-%d %H:%M:%S";
         label = "%date%";
         label-foreground = "\${colors.primary}";
+      };
+      "module/yubikey" = {
+        type = "custom/script";
+        exec = ''${pkgs.nmap}/bin/ncat --unixsock $XDG_RUNTIME_DIR/yubikey-touch-detector.socket | while read -n5 message; do [[ $message = *1 ]] && echo " y " || echo ""; done'';
+        tail = true;
+        format = {
+          foreground = "\${colors.background}";
+          background = "\${colors.primary}";
+        };
       };
       "settings" = {
         screenchange-reload = true;
