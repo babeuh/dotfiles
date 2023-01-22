@@ -23,22 +23,9 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 
 # Maybe TODO
 
-## User password and secrets
+## Secrets
 
-You have basically two ways of setting up default passwords:
-- By default, you'll be prompted for a root password when installing with
-  `nixos-install`. After you reboot, be sure to add a password to your own
-  account and lock root using `sudo passwd -l root`.
-- Alternatively, you can specify `initialPassword` for your user. This will
-  give your account a default password, be sure to change it after rebooting!
-  If you do, you should pass `--no-root-passwd` to `nixos-install`, to skip
-  setting a password on the root account.
-
-If you don't want to set your password imperatively, you can also use
-`passwordFile` for safely and declaratively setting a password from a file
-outside the nix store.
-
-There's also [more advanced options for secret
+There are [advanced options for secret
 management](https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes),
 including some that can include them (encrypted) into your config repo and/or
 nix store, be sure to check them out if you're interested.
