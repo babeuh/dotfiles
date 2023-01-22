@@ -30,12 +30,12 @@ management](https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes),
 including some that can include them (encrypted) into your config repo and/or
 nix store, be sure to check them out if you're interested.
 
-# Credits/"Sources"
+# Credits/Sources
 
-## Misterio77
+## [Misterio77](https://github.com/Misterio77)
 
 - [dotfiles](https://github.com/Misterio77/nix-config)
 - [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
 
 ## [NixOS Wiki](https://nixos.wiki/)
-- [YubiKey](https://nixos.wiki/wiki/Yubikey) [archived](https://web.archive.org/web/20230122125943/https://nixos.wiki/wiki/Yubikey)
+- [YubiKey](https://nixos.wiki/wiki/Yubikey)<sup>[archived](https://web.archive.org/web/20230122125943/https://nixos.wiki/wiki/Yubikey)</sup>
