@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
 
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd
@@ -18,6 +18,10 @@
   ];
 
   nixpkgs = {
+    overlays = [
+      outputs.overlays.modifications
+      outputs.overlays.additions
+    ];
     config = {
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
         "steam"
