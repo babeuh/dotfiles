@@ -15,6 +15,7 @@
     ./networking.nix
     ./audio.nix
     ./syncthing.nix
+    ./security.nix
   ];
 
   nixpkgs = {
@@ -56,19 +57,11 @@
     };
   };
 
-  networking.hostName = "atlas";
-
   users.users = {
     babeuh = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ];
     };
-  };
-
-  security.pam.u2f = {
-    enable = true;
-    control = "required";
-    cue = true;
   };
 
   environment = {
@@ -105,8 +98,6 @@
 
   # Enable trash
   services.gvfs.enable = true;
-  # Enable pcscd
-  services.pcscd.enable = true;
 
   # Locales and shit
   # TODO: move this to a common file
