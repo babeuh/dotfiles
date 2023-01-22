@@ -39,3 +39,6 @@ nix store, be sure to check them out if you're interested.
 
 ## [NixOS Wiki](https://nixos.wiki/)
 - [YubiKey](https://nixos.wiki/wiki/Yubikey)<sup>[[archived](https://web.archive.org/web/20230122125943/https://nixos.wiki/wiki/Yubikey)]</sup>
+
+## [QFPL](https://qfpl.io/)
+- [Installing NixOS](https://qfpl.io/posts/installing-nixos/)<sup>[[archived](https://web.archive.org/web/20221027050431/https://qfpl.io/posts/installing-nixos/)]</sup>
