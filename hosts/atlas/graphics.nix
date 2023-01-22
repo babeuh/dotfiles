@@ -5,7 +5,7 @@
       enable = true;
       driSupport32Bit = true;
     };
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   services.xserver = {
