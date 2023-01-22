@@ -30,4 +30,10 @@
       cmdport 0
     '';
   };
+
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "9.9.9.9" "2620:fe::fe" ];
+    dnssec = "true";
+  };
 }
