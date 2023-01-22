@@ -32,6 +32,10 @@ let
     "Secure" = {
       default = true;
       startpage = true;
+      search = {
+        default = "DuckDuckGo";
+        force = true;
+      };
       arkenfox = [ arkenfox.main ];
       theme = true;
     };
@@ -57,8 +61,8 @@ let
         "ui.systemUsesDarkTheme" = true;
       } // (if profile ? settings then profile.settings else { });
       isDefault = if profile ? default then profile.default else false;
-      arkenfox = lib.mkMerge ([{ enable = true; }]
-        ++ (if profile ? arkenfox then profile.arkenfox else [ ]));
+      search = if profile ? search then profile.search else { };
+      arkenfox = lib.mkMerge ([{ enable = true; }] ++ (if profile ? arkenfox then profile.arkenfox else [ ]));
     };
   };
 in {
