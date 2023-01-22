@@ -16,6 +16,10 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 - Run `home-manager switch --flake .#username@hostname` to apply your home
   configuration.
   - If you don't have home-manager installed, try `nix shell nixpkgs#home-manager`.
+- YubiKey setup, inside of `nix shell nixpkgs#pam_u2f` run:
+  - `mkdir -p ~/.config/Yubico`
+  - `pamu2fcfg > ~/.config/Yubico/u2f_keys`
+    - If you want to add another YubiKey, run `pamu2fcfg -n >> ~/.config/Yubico/u2f_keys`
 
 # Maybe TODO
 
@@ -45,3 +49,6 @@ nix store, be sure to check them out if you're interested.
 
 - [dotfiles](https://github.com/Misterio77/nix-config)
 - [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
+
+## [NixOS Wiki](https://nixos.wiki/)
+- [YubiKey](https://nixos.wiki/wiki/Yubikey) [archived](https://web.archive.org/web/20230122125943/https://nixos.wiki/wiki/Yubikey)
