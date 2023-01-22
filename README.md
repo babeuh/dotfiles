@@ -38,4 +38,4 @@ nix store, be sure to check them out if you're interested.
 - [nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
 
 ## [NixOS Wiki](https://nixos.wiki/)
-- [YubiKey](https://nixos.wiki/wiki/Yubikey)<sup>[archived](https://web.archive.org/web/20230122125943/https://nixos.wiki/wiki/Yubikey)</sup>
+- [YubiKey](https://nixos.wiki/wiki/Yubikey)<sup>[[archived](https://web.archive.org/web/20230122125943/https://nixos.wiki/wiki/Yubikey)]</sup>
