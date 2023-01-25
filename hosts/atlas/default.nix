@@ -15,7 +15,7 @@
     ./networking.nix
     ./audio.nix
     ./syncthing.nix
-    ./security.nix
+    ./hardening.nix
   ];
 
   nixpkgs = {
