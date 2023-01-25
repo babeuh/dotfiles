@@ -20,6 +20,7 @@
     nixfmt # Nix formatter
     rustup # Rust
 
+    qmk # Keyboard firmware
     yubikey-manager # Yubikey
   ];
 }

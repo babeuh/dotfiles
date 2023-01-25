@@ -36,4 +36,8 @@
     fallbackDns = [ "9.9.9.9" "2620:fe::fe" ];
     dnssec = "true";
   };
+
+  # Reduce fingerprinting
+  environment.etc.machine-id.text = "b08dfa6083e7567a1921a715000001fb";
+  networking.networkmanager.ethernet.macAddress = "stable";
 }
