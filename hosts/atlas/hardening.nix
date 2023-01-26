@@ -99,6 +99,16 @@
   # Disable ftrace debugging
   boot.kernel.sysctl."kernel.ftrace_enabled" = false;
 
+  # Protect against SYN flood attacks
+  boot.kernel.sysctl."net.ipv4.tcp_syncookies" = true;
+
+  # Protect against time-wait assassination
+  boot.kernel.sysctl."net.ipv4.tcp_rfc1337" = true;
+
+  # Enable source validation of packets received (Protect against IP spoofing)
+  boot.kernel.sysctl."net.ipv4.all.rp_filter" = true;
+  boot.kernel.sysctl."net.ipv4.default.rp_filter" = true;
+
   # Enable strict reverse path filtering (that is, do not attempt to route
   # packets that "obviously" do not belong to the iface's network; dropped
   # packets are logged as martians).
@@ -107,14 +117,14 @@
   boot.kernel.sysctl."net.ipv4.conf.default.log_martians" = true;
   boot.kernel.sysctl."net.ipv4.conf.default.rp_filter" = "1";
 
-  # Ignore broadcast ICMP (mitigate SMURF)
-  boot.kernel.sysctl."net.ipv4.icmp_echo_ignore_broadcasts" = true;
+  # Ignore all ICMP request (avoid SMURF attacks)
+  boot.kernel.sysctl."net.ipv4.icmp_echo_ignore_all" = true;
 
   # Ignore incoming ICMP redirects (note: default is needed to ensure that the
   # setting is applied to interfaces added after the sysctls are set)
   boot.kernel.sysctl."net.ipv4.conf.all.accept_redirects" = false;
-  boot.kernel.sysctl."net.ipv4.conf.all.secure_redirects" = false;
   boot.kernel.sysctl."net.ipv4.conf.default.accept_redirects" = false;
+  boot.kernel.sysctl."net.ipv4.conf.all.secure_redirects" = false;
   boot.kernel.sysctl."net.ipv4.conf.default.secure_redirects" = false;
   boot.kernel.sysctl."net.ipv6.conf.all.accept_redirects" = false;
   boot.kernel.sysctl."net.ipv6.conf.default.accept_redirects" = false;
@@ -122,4 +132,21 @@
   # Ignore outgoing ICMP redirects (this is ipv4 only)
   boot.kernel.sysctl."net.ipv4.conf.all.send_redirects" = false;
   boot.kernel.sysctl."net.ipv4.conf.default.send_redirects" = false;
+
+  # Disable TCP timestamps (leaks system time)
+  boot.kernel.sysctl."net.ipv4.tcp_timestamps" = false;
+
+  # Disable source routing (can be used for MITM)
+  boot.kernel.sysctl."net.ipv4.conf.all.accept_source_route" = false;
+  boot.kernel.sysctl."net.ipv4.conf.default.accept_source_route" = false;
+  boot.kernel.sysctl."net.ipv6.conf.all.accept_source_route" = false;
+  boot.kernel.sysctl."net.ipv6.conf.default.accept_source_route" = false;
+
+  # Disable IPv6 router advertisements (can be used for MITM)
+  boot.kernel.sysctl."net.ipv6.conf.all.accept_ra" = false;
+  boot.kernel.sysctl."net.ipv6.conf.default.accept_ra" = false;
+
+  # Enable IPv6 privacy extensions (IPv6 address are normally generated
+  # from the computer's MAC address, making it unique)
+  boot.kernel.sysctl."net.ipv6.conf.all.use_tempaddr" = 2;
 }
