@@ -104,9 +104,6 @@
   # Disable ftrace debugging
   boot.kernel.sysctl."kernel.ftrace_enabled" = false;
 
-  # Protect against SYN flood attacks
-  boot.kernel.sysctl."net.ipv4.tcp_syncookies" = true;
-
   # Protect against time-wait assassination
   boot.kernel.sysctl."net.ipv4.tcp_rfc1337" = true;
 
@@ -124,6 +121,7 @@
 
   # Ignore all ICMP request (avoid SMURF attacks)
   boot.kernel.sysctl."net.ipv4.icmp_echo_ignore_all" = true;
+  boot.kernel.sysctl."net.ipv6.icmp_echo_ignore_all" = true;
 
   # Ignore incoming ICMP redirects (note: default is needed to ensure that the
   # setting is applied to interfaces added after the sysctls are set)
