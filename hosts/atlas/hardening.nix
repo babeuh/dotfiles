@@ -50,6 +50,8 @@
   security.sudo.execWheelOnly = true;
 
   security.lockKernelModules = true;
+  boot.kernelModules = [ "usb_storage" ];
+
   security.protectKernelImage = true;
 
   security.unprivilegedUsernsClone = true;
