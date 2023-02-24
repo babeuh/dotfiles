@@ -92,6 +92,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+  boot.kernel.sysctl."vm.max_map_count" = 1000000;
 
   # For steam controller etc.
   # hardware.steam-hardware.enable = true;
