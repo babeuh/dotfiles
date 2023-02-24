@@ -38,6 +38,7 @@ let
       };
       arkenfox = [ arkenfox.main ];
       theme = true;
+      extensions = with addons; [ ublock-origin darkreader ];
     };
     "Insecure" = { };
   };
@@ -63,6 +64,7 @@ let
       isDefault = if profile ? default then profile.default else false;
       search = if profile ? search then profile.search else { };
       arkenfox = lib.mkMerge ([{ enable = true; }] ++ (if profile ? arkenfox then profile.arkenfox else [ ]));
+      extensions = if profile ? extensions then profile.extensions else [];
     };
   };
 in {
@@ -88,7 +90,6 @@ in {
     };
 
     arkenfox.version = "102.0";
-    extensions = with addons; [ ublock-origin darkreader ];
 
     # TODO: Make this better
     profiles = foldOverAttrs 0 buildProfile profiles;
