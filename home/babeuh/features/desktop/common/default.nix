@@ -12,7 +12,7 @@
     ./keepassxc.nix
     ./dunst.nix
     ./helix.nix
-    ./logseq.nix
+    ./obsidian.nix
   ];
 
   home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn yubioath-flutter yubikey-touch-detector ];

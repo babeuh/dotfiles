@@ -20,5 +20,6 @@
     "steam"
     "steam-original"
     "spotify"
+    "obsidian"
   ];
 }
