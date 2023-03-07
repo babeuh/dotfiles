@@ -45,6 +45,11 @@
         tabpages = false;
         # TODO: DIAGONOSTICS
       };
+      gitsigns = {
+        enable = true;
+        showDeleted = true;
+        currentLineBlame = true;
+      };
 
       # Autocomplete
       luasnip.enable = true;
