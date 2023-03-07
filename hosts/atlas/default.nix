@@ -87,6 +87,10 @@
   # Fixes https://nix-community.github.io/home-manager/index.html#_why_do_i_get_an_error_message_about_literal_ca_desrt_dconf_literal_or_literal_dconf_service_literal
   programs.dconf.enable = true;
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  services.flatpak.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
