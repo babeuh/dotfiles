@@ -20,6 +20,12 @@
           path = "/home/babeuh/KeePassXC";
           devices = [ "phone" ];
         };
+        "Obsidian Vault" = {
+          id = "wlwgj-bhqfx";
+          label = "Obsidian Vault";
+          path = "/home/babeuh/Obsidian Vault";
+          devices = [ "phone" ];
+        };
       };
     };
   };
