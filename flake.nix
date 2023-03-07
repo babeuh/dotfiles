@@ -20,7 +20,7 @@
   outputs = { self, nixpkgs, home-manager,  ... }@inputs:
     let
       inherit (self) outputs;
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
+      supportedSystems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in rec {
       # Devshell for bootstrapping
