@@ -6,6 +6,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModule
     inputs.arkenfox.hmModules.default
+    inputs.nixvim.homeManagerModules.nixvim
     ./font.nix
     ../features/cli
   ] ++ (builtins.attrValues outputs.homeManagerModules);
