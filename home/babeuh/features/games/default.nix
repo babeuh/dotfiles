@@ -4,5 +4,6 @@
     heroic
     protonup-ng
     lutris
+    prismlauncher
   ];
 }
