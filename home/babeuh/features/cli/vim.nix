@@ -29,12 +29,34 @@
 
     plugins = {
       # Languages
-      nix.enable = true;
+      treesitter = {
+        enable = true;
+
+        nixGrammars = true;
+        ensureInstalled = [
+          # required
+          "c"
+          "lua"
+          "vim"
+          "help"
+          "query"
+
+          # languages
+          "nix"
+
+          # git
+          "diff"
+          "git_rebase"
+          "gitcommit"
+        ];
+        indent = true;
+        incrementalSelection.enable = true;
+      };
 
       # Utility
       nvim-autopairs = {
         enable = true;
-        # check_ts uses treesitter, have not configured yet so todo
+        checkTs = true;
       };
 
       # UI
@@ -59,7 +81,7 @@
       cmp-buffer.enable = true;
       cmp-path.enable = true;
       cmp-cmdline.enable = true;
-      cmp-calc.enable = true;
+      cmp-treesitter.enable = true;
       nvim-cmp = {
         enable = true;
         snippet.expand = ''function(args)
@@ -107,7 +129,7 @@
           { name = "buffer"; }
           { name = "path"; }
           { name = "cmdline"; }
-          { name = "calc"; }
+          { name = "treesitter"; }
         ];
       };
     };
