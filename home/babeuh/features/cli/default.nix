@@ -20,7 +20,9 @@
     nixfmt # Nix formatter
     rustup # Rust
 
-    qmk # Keyboard firmware
     yubikey-manager # Yubikey
   ];
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 }
