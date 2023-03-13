@@ -23,8 +23,35 @@
       smarttab = true;
     };
     
+    maps = {
+     normal."<leader>t" = {
+        silent = true;
+        action = ":Neotree toggle<cr>";
+      };
+      normal."<leader>g" = {
+        silent = true;
+        action = ":Neotree toggle float git_status<cr>";
+      };
+      normal."<leader>n" = {
+        silent = true;
+        action = ":wincmd h<CR>";
+      };
+      normal."<leader>e" = {
+        silent = true;
+        action = ":wincmd j<CR>";
+      };
+      normal."<leader>i" = {
+        silent = true;
+        action = ":wincmd k<CR>";
+      };
+      normal."<leader>o" = {
+        silent = true;
+        action = ":wincmd l<CR>";
+      };
+    };
+
     globals = {
-      mapleader = "<Space>";
+      mapleader = " ";
     };
 
     plugins = {
@@ -71,6 +98,10 @@
         enable = true;
         showDeleted = true;
         currentLineBlame = true;
+      };
+      neo-tree = {
+        enable = true;
+        closeIfLastWindow = true;
       };
 
       # Autocomplete
