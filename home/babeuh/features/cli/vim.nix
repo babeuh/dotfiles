@@ -84,12 +84,9 @@
       cmp-treesitter.enable = true;
       nvim-cmp = {
         enable = true;
-        snippet.expand = ''function(args)
-          require('luasnip').lsp_expand(args.body)
-        end,
-        '';
+        snippet.expand = "luasnip";
         preselect = "None";
-        completion.autocomplete = "false"; 
+        completion.autocomplete = false; 
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = false })";
           "<Tab>" = {
