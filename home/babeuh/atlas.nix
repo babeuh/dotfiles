@@ -21,5 +21,6 @@
     "steam-original"
     "spotify"
     "obsidian"
+    "multiviewer-for-f1"
   ];
 }

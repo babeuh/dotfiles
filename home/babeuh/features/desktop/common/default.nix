@@ -15,6 +15,6 @@
     ./obsidian.nix
   ];
 
-  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn yubioath-flutter yubikey-touch-detector ];
+  home.packages = with pkgs; [ pulseaudio gimp mullvad-vpn yubioath-flutter yubikey-touch-detector multiviewer-for-f1 ];
   xdg.mimeApps.enable = true;
 }
