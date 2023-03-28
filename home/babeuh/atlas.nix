@@ -13,7 +13,7 @@
     outputs.overlays.additions
     outputs.overlays.modifications
     inputs.nur.overlay
-    inputs.arkenfox.overlay
+    inputs.arkenfox.overlays.default
   ];
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
