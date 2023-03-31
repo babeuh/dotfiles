@@ -38,6 +38,7 @@ input {
 
 #weather {
     position: absolute;
+    font-size: 30px;
     top: 15px;
     right: 15px;
 }

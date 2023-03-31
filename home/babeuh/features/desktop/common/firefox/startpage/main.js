@@ -18,7 +18,7 @@ function date() {
     setTimeout(date, 1000);
 }
 
-async function startWeather(position) {
+async function startWeatherLoop(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const req = await fetch(`http://nominatim.openstreetmap.org/reverse?format=xml&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`)
@@ -27,7 +27,7 @@ async function startWeather(position) {
 }
 
 function weather(town) {
-    fetch("https://wttr.in/" + town + "?format=%c+%t")
+    fetch("https://wttr.in/" + town + "?format=%C+%t")
         .then(response => response.text())
         .then(text => {
             document.getElementById("weather").innerHTML = text;
@@ -52,7 +52,7 @@ function submitForm() {
 function main() {
     time();
     date();
-    navigator.geolocation.getCurrentPosition(startWeather);
+    navigator.geolocation.getCurrentPosition(startWeatherLoop);
     window.onfocus = () => {
         window.setTimeout(() => gebi("search-q").focus(), 0);
     }
