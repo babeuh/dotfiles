@@ -15,7 +15,7 @@
       {
         delay = 60;
         command =
-          "${pkgs.betterlockscreen}/bin/betterlockscreen -u ${config.wallpaper} --fx \"\" & ${pkgs.betterlockscreen}/bin/betterlockscreen -l";
+          "${pkgs.betterlockscreen}/bin/betterlockscreen -u ${config.wallpaper} --fx \"\" && ${pkgs.betterlockscreen}/bin/betterlockscreen -l";
       }
     ];
   };

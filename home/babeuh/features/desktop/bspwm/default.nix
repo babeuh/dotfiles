@@ -2,7 +2,6 @@
   imports = [ 
     ../common
     ./xidlehook.nix
-    ./betterlockscreen.nix
     ./rofi.nix
     ./sxhkd.nix
     ./bspwm.nix
