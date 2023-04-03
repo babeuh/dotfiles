@@ -87,13 +87,6 @@
       };
 
       # UI
-      barbar = {
-        enable = true;
-
-        closable = false;
-        tabpages = false;
-        # TODO: DIAGONOSTICS
-      };
       gitsigns = {
         enable = true;
         showDeleted = true;
