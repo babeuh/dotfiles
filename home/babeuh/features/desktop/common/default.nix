@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     pulseaudio
     gimp
+    krita
     mullvad-vpn
     yubioath-flutter
     yubikey-touch-detector
