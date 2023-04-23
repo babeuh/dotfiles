@@ -53,7 +53,6 @@ in {
       gapless_monocle      = true;
     };
     startupPrograms = [
-      "alacritty --class spotify -e \"ncspot\""
       "feh --bg-fill --no-fehbg ${config.wallpaper}"
     ];
   };
