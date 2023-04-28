@@ -126,8 +126,7 @@ in {
       submap=reset
 
       exec-once=udiskie &
-      exec=pkill waybar
-      exec=sleep 0.1; waybar
+      exec-once=waybar
       exec-once=hyprpaper
 
       exec-once=discord
