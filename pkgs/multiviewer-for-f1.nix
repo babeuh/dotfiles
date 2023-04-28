@@ -21,12 +21,13 @@
 , nss
 , pango
 , xorg
+, wayland
 }:
 let
   inherit (stdenv.hostPlatform) system;
   pname = "multiviewer-for-f1";
-  version = "1.14.2";
-  id = "99812509";
+  version = "1.15.1";
+  id = "105772526";
 
   meta = with lib; {
     description = "Unofficial desktop client for F1 TV®";
@@ -39,7 +40,7 @@ let
 
   src = fetchurl {
     url = "https://releases.multiviewer.dev/download/${id}/${pname}_${version}_amd64.deb";
-    sha256 = "sha256-qvwcYzXrU9UI5nL1y6jG9E0mTBdGuV750br9sUr3MbY=";
+    sha256 = "sha256-BIxU4WFFgovSFADcJBvjrSPw+OdbP3q/Yep5jOUDBiM=";
   };
 
   deps = [
@@ -67,6 +68,7 @@ let
     xorg.libXext
     xorg.libXfixes
     xorg.libXrandr
+    wayland
   ];
 in
 stdenv.mkDerivation {
@@ -97,6 +99,7 @@ stdenv.mkDerivation {
 
       makeWrapper $out/share/${pname}/${pname} $out/bin/${pname} \
         --add-flags $out/share/${pname}/resources/app \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}}" \
         --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath deps }:$out/share/${pname}"
 
       runHook postInstall
