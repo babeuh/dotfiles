@@ -6,7 +6,6 @@ let
     openasar = {
       setup = true;
       noTyping = true;
-      quickstart = true;
     };
     SKIP_HOST_UPDATE = true;
     MINIMIZE_TO_TRAY = false;

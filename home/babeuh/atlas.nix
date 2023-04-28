@@ -3,7 +3,7 @@
     ./global
     ./features/distrobox
     ./features/games
-    ./features/desktop/bspwm
+    ./features/desktop/hyprland
   ];
   #colorscheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
   wallpaper = ./backgrounds/vettel-years-pixel-gruvboxish.png;

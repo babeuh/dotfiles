@@ -1,7 +1,6 @@
 { pkgs, hostname, lib, outputs, ... }: {
   imports = [
     ./discord.nix
-    ./dragon.nix
     ./firefox
     ./gtk.nix
     ./pavucontrol.nix

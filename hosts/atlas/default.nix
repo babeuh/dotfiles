@@ -3,6 +3,7 @@
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hyprland.nixosModules.default
 
     # It's strongly recommended you take a look at
     # https://github.com/nixos/nixos-hardware
@@ -49,6 +50,10 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
+
+      # Add Hyprland Cachix
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
 
     gc = {
@@ -94,7 +99,6 @@
   programs.dconf.enable = true;
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   services.flatpak.enable = true;
 
   programs.steam = {
@@ -139,4 +143,13 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0003", MODE="0666"
   '';
+
+  #Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+    };
+    nvidiaPatches = true;
+  };
 }

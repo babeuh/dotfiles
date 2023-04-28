@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ spotify ];
+  home.packages = with pkgs; [ spotifywm ];
 }

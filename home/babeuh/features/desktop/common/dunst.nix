@@ -1,4 +1,7 @@
-{ ... }: {
+{ config, ... }: 
+let
+  inherit (config.colorscheme) colors;
+in {
   services.dunst = {
     enable = true;
     settings = {
@@ -8,12 +11,12 @@
         offset = "30x50";
         origin = "top-right";
         transparency = 0;
-        foreground = "#C5C8C6";
-        background = "#282A2E";
-        frame_color = "#707880";
+        foreground = "#${colors.base05}";
+        background = "#${colors.base00}";
+        frame_color = "#${colors.base07}";
         font = "monospace;2";
         fullscreen = "pushback";
-        separator_color = "#707880";
+        separator_color = "#${colors.base03}";
       };
 
       urgency_low = {
@@ -21,13 +24,13 @@
       };
 
       urgency_normal = {
-        highlight = "#F0C674";
+        highlight = "#${colors.base0A}";
         timeout = 5;
       };
 
       urgency_critical = {
-        frame_color = "#A54242";
-        highlight = "#A54242";
+        frame_color = "#${colors.base08}";
+        highlight = "#${colors.base08}";
         timeout = 10;
         fullscreen = "show";
       };

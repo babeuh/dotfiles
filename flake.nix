@@ -15,6 +15,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
     nixvim.url = "github:pta2002/nixvim";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, nixpkgs, home-manager,  ... }@inputs:

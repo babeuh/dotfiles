@@ -8,10 +8,17 @@
 
   services.pcscd.enable = true;
 
-  security.pam.u2f = {
-    enable = true;
-    control = "required";
-    cue = true;
+  security.pam = {
+    services = {
+      swaylock = {
+        name = "swaylock";
+      };
+    };
+    u2f = {
+      enable = true;
+      control = "required";
+      cue = true;
+    };
   };
 
   services.chrony = {
