@@ -85,8 +85,8 @@ in
       * {
         border: none;
         border-radius: 0;
-        font-family: monospace;
-        font-size: 15px;
+        font-family: CozetteVector;
+        font-size: 20px;
         min-height: 0;
         color: #${colors.base05};
         text-shadow: rgba(0,0,0,0);
