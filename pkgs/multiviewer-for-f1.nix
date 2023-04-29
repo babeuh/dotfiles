@@ -40,7 +40,7 @@ let
 
   src = fetchurl {
     url = "https://releases.multiviewer.dev/download/${id}/${pname}_${version}_amd64.deb";
-    sha256 = "sha256-BIxU4WFFgovSFADcJBvjrSPw+OdbP3q/Yep5jOUDBiM=";
+    sha256 = "sha256-rcRKwe7uOrvr9bFAcv/9yeK3GZRbTJXZNnvO10vwXvk=";
   };
 
   deps = [
