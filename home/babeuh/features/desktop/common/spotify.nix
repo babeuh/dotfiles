@@ -1,3 +1,10 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ spotifywm ];
+{ pkgs, ... }:
+let
+ spotify = pkgs.makeDesktopItem {
+    name = "spotify";
+    desktopName = "Spotify";
+    exec = "${pkgs.spotifywm}/bin/spotifywm";
+  };
+in {
+  home.packages = [ spotify ];
 }
