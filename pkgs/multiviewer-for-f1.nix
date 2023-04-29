@@ -26,8 +26,8 @@
 let
   inherit (stdenv.hostPlatform) system;
   pname = "multiviewer-for-f1";
-  version = "1.15.1";
-  id = "105772526";
+  version = "1.15.2";
+  id = "105922296";
 
   meta = with lib; {
     description = "Unofficial desktop client for F1 TV®";
