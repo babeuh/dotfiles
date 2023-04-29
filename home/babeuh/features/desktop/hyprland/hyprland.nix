@@ -89,7 +89,7 @@ in {
       bind=SUPER, bracketright, workspace, m+1
 
       windowrulev2=workspace 1, class:^(firefox)$
-      windowrulev2=workspace 2, class:^(spotify)$
+      windowrulev2=workspace 2, title:^(Spotify)$
       windowrulev2=workspace 3, class:^(Gimp-?\d?\.?[0-9]+)$
       windowrulev2=workspace 3, class:^(krita)$
       windowrulev2=workspace 4, class:^(Logseq)$
