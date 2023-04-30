@@ -26,8 +26,8 @@
 let
   inherit (stdenv.hostPlatform) system;
   pname = "multiviewer-for-f1";
-  version = "1.15.2";
-  id = "105922296";
+  version = "1.15.3";
+  id = "106027819";
 
   meta = with lib; {
     description = "Unofficial desktop client for F1 TV®";
@@ -40,7 +40,7 @@ let
 
   src = fetchurl {
     url = "https://releases.multiviewer.dev/download/${id}/${pname}_${version}_amd64.deb";
-    sha256 = "sha256-rcRKwe7uOrvr9bFAcv/9yeK3GZRbTJXZNnvO10vwXvk=";
+    sha256 = "sha256-vgR53kBRFKNYajEjcJUHhil5/d+NdlsGeGxpsIk8k3s=";
   };
 
   deps = [
