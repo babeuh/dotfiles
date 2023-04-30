@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
- spotify = pkgs.makeDesktopItem {
-    name = "spotify";
+ spotifywm-desktop = pkgs.makeDesktopItem {
+    name = "spotifywm-desktop";
     desktopName = "Spotify";
     exec = "${pkgs.spotifywm}/bin/spotifywm";
   };
 in {
-  home.packages = [ spotify ];
+  home.packages = [ spotifywm-desktop pkgs.spotifywm ];
 }
